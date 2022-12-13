@@ -121,7 +121,7 @@ local load_core = function()
 
 	pack.ensure_plugins()
 	neovide_config()
-	clipboard_config()
+	-- clipboard_config()
 
 	require("core.options")
 	require("core.mapping")
