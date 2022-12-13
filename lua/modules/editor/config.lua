@@ -186,16 +186,23 @@ function config.toggleterm()
 			-- Only set these options specific to this terminal buffer.
 			vim.api.nvim_set_option_value("foldmethod", "manual", { scope = "local" })
 			vim.api.nvim_set_option_value("foldexpr", "0", { scope = "local" })
+			local opts = { buffer = 0 }
+			-- vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+			vim.keymap.set("t", "<A-ESC>", [[<C-\><C-n>]], opts)
+			vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+			vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+			vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+			vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 		end,
-		open_mapping = false, -- [[<c-\>]],
-		hide_numbers = true, -- hide the number column in toggleterm buffers
+		open_mapping = [[<c-\>]],
+		hide_numbers = false, -- hide the number column in toggleterm buffers
 		shade_filetypes = {},
 		shade_terminals = false,
 		shading_factor = "1", -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
-		start_in_insert = true,
+		start_in_insert = false,
 		insert_mappings = true, -- whether or not the open mapping applies in insert mode
 		persist_size = true,
-		direction = "horizontal",
+		direction = "vertical",
 		close_on_exit = true, -- close the terminal window when the process exits
 		shell = vim.o.shell, -- change the default shell
 	})

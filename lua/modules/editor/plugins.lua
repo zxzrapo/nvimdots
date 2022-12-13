@@ -78,7 +78,8 @@ editor["NvChad/nvim-colorizer.lua"] = {
 	config = conf.nvim_colorizer,
 }
 editor["rmagatti/auto-session"] = {
-	opt = true,
+	opt = false,
+	event = "VimEnter",
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
 	config = conf.auto_session,
 }
